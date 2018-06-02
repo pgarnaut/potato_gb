@@ -16,3 +16,5 @@ for the edumacations of the emulator buildings from scratch (and to play around 
 binary will be in
 
     build/src/potato_gb
+
+[reading](LINKS.md)
