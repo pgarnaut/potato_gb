@@ -1,4 +1,6 @@
 #include "memory.h"
+#include <assert.h>
+#include <cstring>
 
 Memory::Memory(size_t size) : mem(size) {
 
@@ -28,5 +30,5 @@ void Memory::fill(uintptr_t start, uintptr_t end, uint8_t value) {
     assert(end + 1 < this->mem.size());
     
     // TODO: c++11 insert() might be better?
-    memset(&this->mem[start], end - start, value);
+    std::memset(&this->mem[start], end - start, value);
 }
