@@ -1,3 +1,6 @@
+#ifndef POTATO_MEMORY_H
+#define  POTATO_MEMORY_H
+
 // NOTES:
 //  the use of uintptr_t instead of just a uint16_t or something seems overkill for an 8bit emulator :D
 #include <stdint.h>
@@ -20,3 +23,5 @@ private:
 
     std::vector<uint8_t> mem;
 };
+
+#endif

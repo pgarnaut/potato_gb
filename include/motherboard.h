@@ -1,4 +1,8 @@
+#ifndef POTATO_MOTHERBOARD_H
+#define POTATO_MOTHERBOARD_H
+
 #include "memory.h"
+#include "cpu.h"
 
 class Motherboard {
 
@@ -8,6 +12,7 @@ public:
 
 private:
     Memory mem;
-    //cpu etc
-
+    CPU cpu;
 };
+
+#endif // POTATO_MOTHERBOARD_H

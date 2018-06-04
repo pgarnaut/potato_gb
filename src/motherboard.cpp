@@ -3,7 +3,9 @@
 // gpu
 // etc
 
-Motherboard::Motherboard() {
+Motherboard::Motherboard() : mem(32*1024), cpu(mem) {
+    // load boot rom image into memory
+    // start CPU on first instruction
 
 }
 
