@@ -3,7 +3,7 @@
 #include <cstring>
 
 Memory::Memory(size_t size) : mem(size) {
-
+    
 }
 
 Memory::~Memory() {
@@ -31,4 +31,8 @@ void Memory::fill(uintptr_t start, uintptr_t end, uint8_t value) {
     
     // TODO: c++11 insert() might be better?
     std::memset(&this->mem[start], end - start, value);
+}
+
+void Memory::loadImage(const std::vector<uint8_t> &image) {
+    this->mem = std::vector<uint8_t>(image); // shallow clone
 }

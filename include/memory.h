@@ -7,6 +7,7 @@
 #include <stddef.h>
 #include <vector>
 
+
 class Memory {
 public:
     Memory(size_t size = 0);
@@ -17,6 +18,8 @@ public:
 
     // load word (return in little endian order)
     uint16_t loadw(uintptr_t addr);
+
+    void loadImage(const std::vector<uint8_t> &image);
 
 private:
     void fill(uintptr_t start, uintptr_t end, uint8_t value = 0);
