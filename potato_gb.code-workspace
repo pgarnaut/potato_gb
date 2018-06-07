@@ -28,7 +28,9 @@
 			"stdexcept": "cpp",
 			"typeinfo": "cpp",
 			"algorithm": "cpp",
-			"__locale": "cpp"
+			"__locale": "cpp",
+			"system_error": "cpp",
+			"bitset": "cpp"
 		}
 	}
 }
