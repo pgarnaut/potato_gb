@@ -3,6 +3,7 @@
 //
 
 #include "cpu.h"
+#include "log.h"
 #include <iostream>
 
 using namespace std;
@@ -17,7 +18,13 @@ CPU::CPU(Memory &mem) : mem(mem) {
     for (size_t i=0; i<opcodes.size(); i++) {
         opcodes[i].code = i;
     }
-    //opcodes[0x00] = 
+
+    Opcode ld_sp = opcodes[0x31];
+    opcodes[0x31] = Opcode(0x31, 12, "LD");
+    
+
+    //opcodes[0x31] = Opcode({1,2,""});
+
 }
 
 CPU::~CPU() {
@@ -26,6 +33,13 @@ CPU::~CPU() {
 
 void CPU::tick() {
     // 1 clock cycle ...
-    Opcode opcode = this->opcodes[mem.loadb(this->registers.PC.w)];
-    cout << "PC: " << hex << this->registers.PC.w << ": Opcode: " << hex << opcode.code << endl;
+    Opcode opcode = this->opcodes[mem.loadb(registers.PC.w)];
+    registers.PC.w++;
+    Log::get(LOG_CRAP) << "PC: " << hex << this->registers.PC.w << ": Opcode: " 
+            << hex << opcode.code
+            << " " << opcode.mnemonic << endl;
+    
+    uint8_t cycles = opcode.execute();
+
+    // do something with cycles... 
 }

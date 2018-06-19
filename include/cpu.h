@@ -15,11 +15,19 @@ public:
     virtual ~CPU();
     void tick();
 
+    // base class for all opcodes
     class Opcode {
     public:
-        Opcode() { code = 0x00; }
-        uint8_t code;
-        std::string memonic;
+        // default is NOP opcode
+        Opcode(uint8_t code = 0x00, uint8_t cycles = 4, const std::string &mnemonic = "NOP") { }
+
+        // hmm confused myself with the copy/move operators
+        //Opcode(const Opcode& o) : code(o.code), cycles(o.cycles), mnemonic(o.mnemonic) { }
+        //Opcode(Opcode&& o) noexcept : mnemonic(std::move(o.mnemonic)) {}
+        uint8_t code, cycles;
+        std::string mnemonic;
+
+        uint8_t execute() { return cycles; } // return # of cycles taken
     };
 
 
