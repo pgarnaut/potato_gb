@@ -1,10 +1,11 @@
 #include <iostream>
+//#include <filesystem>
 #include "motherboard.h"
 
 using namespace std;
 
 int main(int argc, char **argv) {
-    cout << "start" << endl;
+    cout << "start: " << argv[0] << endl;
     
     Motherboard mobo;
 

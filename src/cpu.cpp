@@ -5,6 +5,7 @@
 #include "cpu.h"
 #include "log.h"
 #include <iostream>
+#include "json.hpp"
 
 using namespace std;
 
