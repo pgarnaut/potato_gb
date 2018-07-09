@@ -12,4 +12,4 @@ before_install:
 - echo $LC_ALL
 
 script:
-- mkdir build && cd build && cmake .. && make
+- mkdir build && cd build && cmake .. && VERBOSE=1 make
