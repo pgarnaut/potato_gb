@@ -11,6 +11,7 @@ curated list:
 * https://github.com/Baekalfen/PyBoy/blob/master/PyBoy.pdf
 * https://media.ccc.de/v/33c3-8029-the_ultimate_game_boy_talk
 * http://gbdev.gg8.se/wiki/articles/Pan_Docs
+* https://cturt.github.io/cinoop.html
 
 ### opcodes etc
 
