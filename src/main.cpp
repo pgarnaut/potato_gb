@@ -9,7 +9,7 @@ int main(int argc, char **argv) {
     
     Motherboard mobo;
 
-
+    mobo.loadROM("../images/BOOT_ROM.bin");
 
     // here's a quick example of endinaness, because i still manage to confuse myself sometimes :(
     uint8_t b1 = 0x0F;

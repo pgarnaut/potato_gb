@@ -2,6 +2,7 @@
 # to value given with "project()" in the root CMakeLists.txt.
 
 include_directories(${Potato_SOURCE_DIR}/include)
+link_libraries(stdc++fs)
 file(GLOB SOURCES "*.cpp")
 
 set(CMAKE_BINARY_DIR "bin")
