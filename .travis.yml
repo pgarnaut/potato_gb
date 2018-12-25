@@ -11,7 +11,8 @@ script:
   - make
 
 matrix:
-  - os: linux
+  include:
+    - os: linux
       compiler: gcc-8
       env:
         - C_COMPILER=gcc-8
@@ -22,7 +23,6 @@ matrix:
             - ubuntu-toolchain-r-test
           packages:
             - g++-8
-  include:
     - os: linux
       compiler: clang-6.0
       env:
