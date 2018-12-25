@@ -22,7 +22,7 @@ Motherboard::Motherboard() : mem(32*1024), cpu(mem) {
     }
 
     // now load an actual game ROM in the same manner ...
-
+    
 }
 
 bool Motherboard::loadROM(std::experimental::filesystem::path path) {

@@ -1,6 +1,9 @@
 #ifndef POTATO_LOG_H
 #define POTATO_LOG_H
 
+// holy crap it's tricky implementing log levels with a stream-based templated logging class... 
+// should come back to this interesting puzzle.. or maybe someone else has solved this already?
+
 #include <iostream>
 #include <string.h>
 #include <string>
@@ -16,7 +19,8 @@ class Log {
 private:
     // can't be forward declared
     using endl_type = std::ostream&(std::ostream&);
-    enum Level {debug=0, information=1, warning=2, error=3};
+    enum Level {spam=0, info=1, debug=2, warning=3, error=4}; // TODO: <--- one day...
+    
 public:    
     Log& operator<<(endl_type endl){
         _next_is_begin = true;
@@ -32,11 +36,16 @@ public:
         return *this;
     }
 
-    static Log& get(const std::string &extra = "");
-
+    static Log& get(const std::string &extra = "", Log::Level level = Log::Level::info);
+    
+    //static void setLogLevel(Log::Level level);
+    
+    
 private:
     bool _next_is_begin;
     std::stringstream logbuf;
+    Log::Level currentLevel;
+    //static Log logger;
 };
 
 #endif //POTATO_LOG_H

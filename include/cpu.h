@@ -7,11 +7,14 @@
 
 #include <string>
 #include <vector>
+#include <experimental/filesystem>
 #include "memory.h"
+#include "json.hpp"
 
 class CPU {
 public:
-    CPU(Memory &mem);
+    CPU(Memory &mem, 
+        std::experimental::filesystem::path opcodesFile = "../game-boy-opcodes/opcodes.json");
     virtual ~CPU();
     void tick();
 
@@ -34,7 +37,8 @@ public:
 private:
     Memory &mem;
     std::vector<Opcode> opcodes;
-
+    int loadOpcodes(std::experimental::filesystem::path opcodesFile);
+    
     union Register {
         uint16_t w;
         struct {
@@ -47,6 +51,9 @@ private:
         Register AF, BC, DE, HL, SP, PC;
     } registers;
 
+    // TODO: some preprocessing to make lookups faster.. example json file we have is all string indexed
+    nlohmann::json opcodeTable;
+    
     uint8_t &A = registers.AF.b0;
     uint8_t &F = registers.AF.b1;
     // etc

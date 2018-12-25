@@ -1,6 +1,7 @@
 #include <iostream>
 //#include <filesystem>
 #include "motherboard.h"
+#include "log.h"
 
 using namespace std;
 
